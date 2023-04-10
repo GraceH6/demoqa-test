@@ -1,19 +1,15 @@
 package com.demoqa;
 
-import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selectors.byText;
 
-public class DemoQAFormTest {
+public class DemoQAFormTest extends TestBase {
 
     @Test
     void formTest() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.holdBrowserOpen = true;
-        Configuration.browserSize = "1920x1080";
-
 
         String userName = "Grace";
         String userLastName = "Hopper";
@@ -29,7 +25,8 @@ public class DemoQAFormTest {
         $("#firstName").setValue(userName);
         $("#lastName").setValue(userLastName);
         $("#userEmail").setValue(userEmail);
-        $x("//label[contains(text(), 'Female')]").click();
+//        $x("//label[contains(text(), 'Female')]").click();
+        $("#genterWrapper").$(byText("Female")).click();
         $("#userNumber").setValue(userNumber);
         $("#dateOfBirthInput").click();
         $(".react-datepicker__year-select").selectOption("1903");
@@ -44,5 +41,11 @@ public class DemoQAFormTest {
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
+
+//        checking
+
+        $(".table").shouldHave(text(userName), text(userLastName), text(userEmail),
+                text("Female"), text(userNumber),text("09 December,1903"), text("Maths"),
+                text("Sports"), text(userAddress), text("NCR Delhi"));
     }
 }
