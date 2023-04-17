@@ -2,43 +2,43 @@ package com.demoqa.tests;
 
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class DemoQAFormTest extends TestBase {
+
+    String userName = "Grace", userLastName = "Hopper", userEmail = "grace@hopper.com",
+            userNumber = "1234567891", gender = "Female", subject = "math", hobby = "Sports",
+            userAddress = "129 E 60th ST", userState = "NCR", userCity = "Delhi";
 
     @Test
     void formTest() {
 
         registrationPage.openPage()
-                        .setFirstName("Grace")
-                        .setLastName("Hopper")
-                        .setUserEmail("grace@hopper.com")
-                        .gender("Female")
-                        .setNumber("1234567891")
+                        .setFirstName(userName)
+                        .setLastName(userLastName)
+                        .setUserEmail(userEmail)
+                        .gender(gender)
+                        .setNumber(userNumber)
+                        .setSubject(subject)
+                        .selectHobby(hobby)
+                        .uploadPic("img/photo.jpg")
+                        .setAddress(userAddress)
+                        .selectState(userState)
+                        .selectCity(userCity)
                         .setBirthDate("1903","December", "09");
-        $("#subjectsInput").setValue("math").pressEnter();
-        $("#hobbiesWrapper").$(byText("Sports")).click();
-        $("#uploadPicture").uploadFromClasspath("img/photo.jpg");
-        $("#currentAddress").setValue("129 E 60th ST");
-        $("#state").click();
-        $("#stateCity-wrapper").$(byText("NCR")).click();
-        $("#city").click();
-        $("#stateCity-wrapper").$(byText("Delhi")).click();
-        $("#submit").click();
+        registrationPage.clickSubmitButton();
 
 //        checking
         registrationPage.registrationModalAppears()
-                .verifyResult("Student Name", "Grace Hopper")
-                .verifyResult("Student Email", "grace@hopper.com")
-                .verifyResult("Gender", "Female")
-                .verifyResult("Mobile", "1234567891")
+                .verifyResult("Student Name", userName + " " + userLastName)
+                .verifyResult("Student Email", userEmail)
+                .verifyResult("Gender", gender)
+                .verifyResult("Mobile", userNumber)
                 .verifyResult("Date of Birth", "09 December,1903")
-                .verifyResult("Subjects", "Math")
-                .verifyResult("Hobbies", "Sports")
-                .verifyResult("Address", "129 E 60th ST")
-                .verifyResult("State and City", "NCR Delhi");
-
-
+                .verifyResult("Subjects", subject)
+                .verifyResult("Hobbies", hobby)
+                .verifyResult("Address", userAddress)
+                .verifyResult("State and City", userState + " " + userCity);
+        sleep(4000);
     }
 }
