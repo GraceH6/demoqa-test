@@ -10,11 +10,12 @@ public class TextBoxTests extends TestBase {
     TextBoxRegistrationPage textBoxRegistrationPage = new TextBoxRegistrationPage();
 
     String userName = "Abay", userEmail = "abay@kunanbayev.com",
-            permanentAddress = "anotherWorld", currentAddress = "Semey";
+            permanentAddress = "Another world", currentAddress = "Semey";
     @Test
     void successfulFillFormTest() {
         textBoxRegistrationPage.openPage()
-                                .setFirstName(userName)
+                                .removeBanners();
+        textBoxRegistrationPage.setFirstName(userName)
                                 .setUserEmail(userEmail)
                                 .setCurrentAddress(currentAddress)
                                 .setPermanentAddress(permanentAddress)

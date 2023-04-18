@@ -22,11 +22,13 @@ public class TextBoxRegistrationPage {
     public TextBoxRegistrationPage openPage() {
         open("/text-box");
         textBoxPage.shouldHave(text("Text Box"));
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
         return this;
     }
 
+    public void removeBanners() {
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+    }
     public TextBoxRegistrationPage setFirstName(String value) {
         textBoxUserName.setValue(value);
         return this;

@@ -1,10 +1,13 @@
 package com.demoqa.tests;
 
+import com.demoqa.pages.RegistrationPage;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.sleep;
 
 public class DemoQAFormTest extends TestBase {
+
+    RegistrationPage registrationPage = new RegistrationPage();
 
     String userName = "Grace", userLastName = "Hopper", userEmail = "grace@hopper.com",
             userNumber = "1234567891", gender = "Female", subject = "math", hobby = "Sports",
@@ -14,7 +17,8 @@ public class DemoQAFormTest extends TestBase {
     void formTest() {
 
         registrationPage.openPage()
-                        .setFirstName(userName)
+                        .removeBanners();
+        registrationPage.setFirstName(userName)
                         .setLastName(userLastName)
                         .setUserEmail(userEmail)
                         .gender(gender)
