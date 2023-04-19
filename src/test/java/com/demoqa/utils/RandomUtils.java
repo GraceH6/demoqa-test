@@ -20,13 +20,6 @@ public class RandomUtils {
                     citiesOfHaryana = {"Karnal", "Panipat"},
                     citiesOfRajasthan = {"Jaipur", "Jaiselmer"};
 
-//    private static int getRandomInt(int min, int max) {
-//        return ThreadLocalRandom.current().nextInt(min, max + 1);
-//    }
-//    private static String getRandomItemFromArray(String[] values) {
-//        int index = getRandomInt(0, values.length - 1);
-//        return values[index];
-//    }
 
     public static String getRandomGender() {
         return faker.options().option(gender);
@@ -71,4 +64,5 @@ public class RandomUtils {
         }
         return null;
     }
+
 }

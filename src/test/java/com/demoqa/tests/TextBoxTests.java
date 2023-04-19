@@ -1,6 +1,5 @@
 package com.demoqa.tests;
 
-import com.demoqa.pages.TextBoxRegistrationPage;
 import org.junit.jupiter.api.Test;
 
 public class TextBoxTests extends TestBase {
