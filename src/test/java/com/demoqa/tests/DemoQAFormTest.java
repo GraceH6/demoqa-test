@@ -1,17 +1,26 @@
 package com.demoqa.tests;
 
-import com.demoqa.pages.RegistrationPage;
+import com.demoqa.utils.RandomUtils;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.sleep;
+import static com.demoqa.utils.RandomUtils.*;
+
 
 public class DemoQAFormTest extends TestBase {
 
-    RegistrationPage registrationPage = new RegistrationPage();
-
-    String userName = "Grace", userLastName = "Hopper", userEmail = "grace@hopper.com",
-            userNumber = "1234567891", gender = "Female", subject = "math", hobby = "Sports",
-            userAddress = "129 E 60th ST", userState = "NCR", userCity = "Delhi";
+    String userName = faker.name().firstName(),
+            userLastName = faker.name().lastName(),
+            userEmail = faker.internet().emailAddress(),
+            userNumber = faker.number().digits(10).toString(),
+            year = RandomUtils.setRandomYear(),
+            month = RandomUtils.setRandomMonth(),
+            day = RandomUtils.setRandomDay(),
+            gender = getRandomGender(),
+            subject = getRandomSubject(),
+            hobby = getRandomHobby(),
+            userAddress = faker.address().streetAddress(),
+            userState = getRandomState(),
+            userCity = getRandomCity(userState);
 
     @Test
     void formTest() {
@@ -29,7 +38,7 @@ public class DemoQAFormTest extends TestBase {
                         .setAddress(userAddress)
                         .selectState(userState)
                         .selectCity(userCity)
-                        .setBirthDate("1903","December", "09");
+                        .setBirthDate(year, month, day);
         registrationPage.clickSubmitButton();
 
 //        checking
@@ -38,11 +47,10 @@ public class DemoQAFormTest extends TestBase {
                 .verifyResult("Student Email", userEmail)
                 .verifyResult("Gender", gender)
                 .verifyResult("Mobile", userNumber)
-                .verifyResult("Date of Birth", "09 December,1903")
+                .verifyResult("Date of Birth", day + " " + month + "," + year)
                 .verifyResult("Subjects", subject)
                 .verifyResult("Hobbies", hobby)
                 .verifyResult("Address", userAddress)
                 .verifyResult("State and City", userState + " " + userCity);
-        sleep(4000);
     }
 }

@@ -3,14 +3,13 @@ package com.demoqa.tests;
 import com.demoqa.pages.TextBoxRegistrationPage;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.sleep;
-
 public class TextBoxTests extends TestBase {
 
-    TextBoxRegistrationPage textBoxRegistrationPage = new TextBoxRegistrationPage();
 
-    String userName = "Abay", userEmail = "abay@kunanbayev.com",
-            permanentAddress = "Another world", currentAddress = "Semey";
+    String userName = faker.name().fullName(),
+            userEmail = faker.internet().emailAddress(),
+            permanentAddress = faker.address().streetAddress(),
+            currentAddress = faker.friends().quote();
     @Test
     void successfulFillFormTest() {
         textBoxRegistrationPage.openPage()
@@ -26,7 +25,6 @@ public class TextBoxTests extends TestBase {
                                 .verifyEmailOutput(userEmail)
                                 .verifyCurrentAddressOutput(currentAddress)
                                 .verifyPermanentAddressOutput(permanentAddress);
-        sleep(4000);
     }
 
 }
