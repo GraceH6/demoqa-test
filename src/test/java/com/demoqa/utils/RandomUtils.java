@@ -64,5 +64,18 @@ public class RandomUtils {
         }
         return null;
     }
+    public static String userName = faker.name().firstName(),
+            userLastName = faker.name().lastName(),
+            userEmail = faker.internet().emailAddress(),
+            userNumber = faker.number().digits(10).toString(),
+            year = RandomUtils.setRandomYear(),
+            month = RandomUtils.setRandomMonth(),
+            day = RandomUtils.setRandomDay(),
+            userAddress = faker.address().streetAddress(),
+            userState = getRandomState(),
+            userCity = getRandomCity(userState),
+            genderIs = RandomUtils.getRandomGender(),
+            subjectIs = RandomUtils.getRandomSubject(),
+            hobbyIs = RandomUtils.getRandomHobby();
 
 }
