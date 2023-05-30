@@ -1,11 +1,9 @@
 package com.demoqa.tests;
 
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import static com.demoqa.utils.RandomUtils.*;
 public class DemoQAFormTest extends TestBase {
     @Test
-    @Tag("demoqa_reg_test")
     void formTest() {
         registrationPage.openPage()
                         .removeBanners();

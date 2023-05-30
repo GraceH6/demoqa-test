@@ -3,7 +3,6 @@ package com.demoqa.utils;
 import com.github.javafaker.Faker;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-
 public class RandomUtils {
     static Faker faker = new Faker(new Locale("en-IND"));
     static SimpleDateFormat date = new SimpleDateFormat("yyy MMMM dd", Locale.ENGLISH);
