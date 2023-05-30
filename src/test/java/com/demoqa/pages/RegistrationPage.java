@@ -1,34 +1,33 @@
 package com.demoqa.pages;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import com.demoqa.pages.components.CalendarComponent;
 import com.demoqa.pages.components.ResultsModal;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
-
     CalendarComponent calendarComponent = new CalendarComponent();
     ResultsModal resultsModal = new ResultsModal();
 
     SelenideElement firstNameInput = $("#firstName"),
-                    formHeader = $(".practice-form-wrapper"),
-                    lastNameInput = $("#lastName"),
-                    emailInput = $("#userEmail"),
-                    genderSelect = $("#genterWrapper"),
-                    userNumber = $("#userNumber"),
-                    dateOfBirthInput = $("#dateOfBirthInput"),
-                    subjectsInput = $("#subjectsInput"),
-                    hobbiesRadio = $("#hobbiesWrapper"),
-                    uploadPicture = $("#uploadPicture"),
-                    addressField = $("#currentAddress"),
-                    stateSelector = $("#state"),
-                    stateSelectorWrapper = $("#stateCity-wrapper"),
-                    citySelector = $("#city"),
-                    citySelectorWrapper = $("#stateCity-wrapper"),
-                    submitButton = $("#submit");
+            formHeader = $(".practice-form-wrapper"),
+            lastNameInput = $("#lastName"),
+            emailInput = $("#userEmail"),
+            genderSelect = $("#genterWrapper"),
+            userNumber = $("#userNumber"),
+            dateOfBirthInput = $("#dateOfBirthInput"),
+            subjectsInput = $("#subjectsInput"),
+            hobbiesRadio = $("#hobbiesWrapper"),
+            uploadPicture = $("#uploadPicture"),
+            addressField = $("#currentAddress"),
+            stateSelector = $("#state"),
+            stateSelectorWrapper = $("#stateCity-wrapper"),
+            citySelector = $("#city"),
+            citySelectorWrapper = $("#stateCity-wrapper"),
+            submitButton = $("#submit");
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
@@ -117,5 +116,4 @@ public class RegistrationPage {
     public void clickSubmitButton() {
         submitButton.click();
     }
-
 }
