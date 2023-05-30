@@ -1,5 +1,6 @@
 package com.demoqa.tests;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import static com.demoqa.utils.RandomUtils.*;
@@ -8,6 +9,7 @@ import static io.qameta.allure.Allure.step;
 public class DemoQAFormTest extends TestBase {
     @Test
     @Tag("remote-test")
+    @DisplayName("Successful registration")
     void formTest() {
         step("Open the form", () -> {
             registrationPage.openPage()
