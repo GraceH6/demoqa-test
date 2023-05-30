@@ -1,17 +1,10 @@
 package com.demoqa.tests;
 
 import org.junit.jupiter.api.Test;
-
 import static com.demoqa.utils.RandomUtils.*;
-
-
 public class DemoQAFormTest extends TestBase {
-
-
-
     @Test
     void formTest() {
-
         registrationPage.openPage()
                         .removeBanners();
         registrationPage.setFirstName(userName)
@@ -27,7 +20,6 @@ public class DemoQAFormTest extends TestBase {
                         .selectCity(userCity)
                         .setBirthDate(year, month, day);
         registrationPage.clickSubmitButton();
-
 //        checking
         registrationPage.registrationModalAppears()
                 .verifyResult("Student Name", userName + " " + userLastName)

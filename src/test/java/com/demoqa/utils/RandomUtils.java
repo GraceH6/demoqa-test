@@ -1,7 +1,6 @@
 package com.demoqa.utils;
 
 import com.github.javafaker.Faker;
-
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
@@ -19,7 +18,6 @@ public class RandomUtils {
                     citiesOfUttarPradesh = {"Agra", "Lucknow", "Merrut"},
                     citiesOfHaryana = {"Karnal", "Panipat"},
                     citiesOfRajasthan = {"Jaipur", "Jaiselmer"};
-
 
     public static String getRandomGender() {
         return faker.options().option(gender);
@@ -77,5 +75,4 @@ public class RandomUtils {
             genderIs = RandomUtils.getRandomGender(),
             subjectIs = RandomUtils.getRandomSubject(),
             hobbyIs = RandomUtils.getRandomHobby();
-
 }

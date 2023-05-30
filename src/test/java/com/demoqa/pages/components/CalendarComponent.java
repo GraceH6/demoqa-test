@@ -8,6 +8,5 @@ public class CalendarComponent {
         $(".react-datepicker__month-select").selectOption(month);
         String dayPickerLocator = String.format(".react-datepicker__day--0" + day);
         $(dayPickerLocator).click();
-
     }
 }
