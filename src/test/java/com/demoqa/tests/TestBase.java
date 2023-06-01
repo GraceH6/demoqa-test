@@ -19,12 +19,14 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        String[] browser = System.getProperty("browser").split(":");
-        Configuration.browser = browser[0];
-        Configuration.browserVersion = browser[1];
+        Configuration.browser = System.getProperty("browser");
+        Configuration.browserVersion = System.getProperty("browserVersion");
         Configuration.baseUrl = System.getProperty("baseUrl");
-        Configuration.browserSize = "1920x1080";
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        Configuration.browserSize = System.getProperty("browserSize");
+        String selenoidUrl = System.getProperty("selenoidUrl");
+        String selenoidLogin = System.getProperty("selenoidLogin");
+        String selenoidPass = System.getProperty("selenoidPass");
+        Configuration.remote = String.format("https://%s:%s@%s", selenoidLogin, selenoidPass, selenoidUrl); //"https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
