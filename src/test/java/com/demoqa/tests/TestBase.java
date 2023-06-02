@@ -22,13 +22,13 @@ public class TestBase {
         String[] browserAndItsVersion = System.getProperty("browser").split(":");
         Configuration.browser = browserAndItsVersion[0];
         Configuration.browserVersion = browserAndItsVersion[1];
-        Configuration.pageLoadStrategy = "eager";
         Configuration.baseUrl = System.getProperty("baseUrl");
         Configuration.browserSize = System.getProperty("browserSize");
         String selenoidUrl = System.getProperty("selenoidUrl");
         String selenoidLogin = System.getProperty("selenoidLogin");
         String selenoidPass = System.getProperty("selenoidPass");
-        Configuration.remote = String.format("https://%s:%s@%s", selenoidLogin, selenoidPass, selenoidUrl); //"https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        Configuration.remote = String.format("https://%s:%s@%s", selenoidLogin, selenoidPass, selenoidUrl);
+        Configuration.pageLoadStrategy = "eager";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
