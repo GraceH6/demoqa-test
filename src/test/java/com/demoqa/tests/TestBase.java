@@ -22,6 +22,7 @@ public class TestBase {
         String[] browserAndItsVersion = System.getProperty("browser").split(":");
         Configuration.browser = browserAndItsVersion[0];
         Configuration.browserVersion = browserAndItsVersion[1];
+        Configuration.pageLoadStrategy = "eager";
         Configuration.baseUrl = System.getProperty("baseUrl");
         Configuration.browserSize = System.getProperty("browserSize");
         String selenoidUrl = System.getProperty("selenoidUrl");
