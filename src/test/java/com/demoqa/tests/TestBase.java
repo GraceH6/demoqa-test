@@ -19,10 +19,10 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
+        Configuration.baseUrl = System.getProperty("baseUrl");
         String[] browserAndItsVersion = System.getProperty("browser").split(":");
         Configuration.browser = browserAndItsVersion[0];
         Configuration.browserVersion = browserAndItsVersion[1];
-        Configuration.baseUrl = System.getProperty("baseUrl");
         Configuration.browserSize = System.getProperty("browserSize");
         String selenoidUrl = System.getProperty("selenoidUrl");
         String selenoidLogin = System.getProperty("selenoidLogin");
